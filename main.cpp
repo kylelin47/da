@@ -59,7 +59,7 @@ TEST_CASE( "List can be created,,modified, and indexed using all functions", "[l
         REQUIRE ( l.size() == 0 );
 
     }
-    SECTION( "Iterators, Equals Assignment, Equality Operations" ) {
+    SECTION( "Iterators" ) {
         l.push_front( 'Z' );
         l.push_front( 'Y' );
         l.push_front( 'X' );
@@ -108,9 +108,27 @@ TEST_CASE( "List can be created,,modified, and indexed using all functions", "[l
         {
             std::cerr << msg << std::endl;
         }
+        l.push_front( 'A' );
+        l.push_back( 'B' );
         try
         {
             l.remove( 3 );
+        }
+        catch ( const char* msg )
+        {
+            std::cerr << msg << std::endl;
+        }
+        try
+        {
+            l.replace( 'A', 3 );
+        }
+        catch ( const char* msg )
+        {
+            std::cerr << msg << std::endl;
+        }
+        try
+        {
+            l.remove( -1 );
         }
         catch ( const char* msg )
         {
